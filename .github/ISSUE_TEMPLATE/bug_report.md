@@ -6,7 +6,6 @@ labels: bug
 assignees: ''
 
 ---
-# Bug Report
 ## Description
 Describe the bug you are experience in detail here. Please make usage of [markdown](https://guides.github.com/features/mastering-markdown/) and place code tags when necessary. If your bug is a security flaw, private message `GlorifiedPig#6666` on [Discord](https://discord.gg/glorifiedstudios).
 

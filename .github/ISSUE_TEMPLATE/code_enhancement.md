@@ -6,6 +6,5 @@ labels: enhancement
 assignees: ''
 
 ---
-# Code Enhancement
 ## Description
 Describe where the code can be improved upon here. Please make usage of [markdown](https://guides.github.com/features/mastering-markdown/) and place code tags when necessary.

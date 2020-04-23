@@ -6,7 +6,6 @@ labels: crash
 assignees: ''
 
 ---
-# Crash Report
 ## Description
 Describe the crash you are experience in detail here. Please make usage of [markdown](https://guides.github.com/features/mastering-markdown/) and place code tags when necessary. Be sure to attach crash logs, as they are very useful to us.
 

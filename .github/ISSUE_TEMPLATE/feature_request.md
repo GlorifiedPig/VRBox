@@ -6,6 +6,5 @@ labels: feature request
 assignees: ''
 
 ---
-# Feature Request
 ## Description
 Describe in detail what you would like added to the game here.
