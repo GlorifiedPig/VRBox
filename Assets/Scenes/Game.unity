@@ -3550,6 +3550,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5971796319910748053, guid: 05980fcfb7266524cb940f5a8347315a,
+        type: 3}
+      propertyPath: field of view
+      value: 26.991467
+      objectReference: {fileID: 0}
+    - target: {fileID: 5971796319910748053, guid: 05980fcfb7266524cb940f5a8347315a,
+        type: 3}
+      propertyPath: m_projectionMatrixMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5971796319910748053, guid: 05980fcfb7266524cb940f5a8347315a,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5971796319910748053, guid: 05980fcfb7266524cb940f5a8347315a,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5971796319910748053, guid: 05980fcfb7266524cb940f5a8347315a,
+        type: 3}
+      propertyPath: m_RenderingPath
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5971796319910748055, guid: 05980fcfb7266524cb940f5a8347315a,
+        type: 3}
+      propertyPath: bobbingAmount
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5971796318843202185, guid: 05980fcfb7266524cb940f5a8347315a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 05980fcfb7266524cb940f5a8347315a, type: 3}
