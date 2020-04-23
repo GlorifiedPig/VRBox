@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Unity.Collections;
 using TMPro;
+using MoonSharp.Interpreter;
 
 public class ConsoleController : MonoBehaviour
 {
@@ -20,6 +21,14 @@ public class ConsoleController : MonoBehaviour
     public static void ThrowError( string errorText ) { AddLineToConsole( "<color=red>" + errorText + "</color>" ); }
     public static void ThrowWarning( string warningText ) { AddLineToConsole( "<color=orange>" + warningText + "</color>" ); }
     public static void PrintToConsole( string printText ) { AddLineToConsole( "<color=white>" + printText + "</color>" ); }
+
+    public static void ThrowExceptionToConsole( InterpreterException ex ) {
+        string niceMessage = ex.DecoratedMessage;
+        niceMessage = niceMessage.Replace( @"\", "/" );
+        int modulesIndex = niceMessage.IndexOf( "modules" );
+        niceMessage = niceMessage.Substring( modulesIndex, niceMessage.Length - modulesIndex );
+        ConsoleController.ThrowError( niceMessage );
+    }
 
     void Awake() {
         consoleActive = consoleGameObject.activeSelf;

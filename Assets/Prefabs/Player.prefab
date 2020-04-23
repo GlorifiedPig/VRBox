@@ -325,6 +325,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860eb67b097446a4b95a67e95f19a491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bobbingSpeed: 15
-  bobbingAmount: 0.05
-  recoverSpeed: 10
+  bobbingSpeed: 0.18
+  bobbingAmount: 0.2

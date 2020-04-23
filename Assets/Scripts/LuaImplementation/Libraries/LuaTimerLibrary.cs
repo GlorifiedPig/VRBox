@@ -10,7 +10,7 @@ class LuaTimerLibrary
     
     public void Begin( float seconds, Closure function ) {
         if( seconds < 0 ) { return; }
-        gameController.GetComponent<LuaScriptLoader>().StartCoroutine( StartEnumerator( seconds, function ) );
+        gameController.GetComponent<LuaScriptLoader>().StartCoroutine( StartEnumerator( seconds, function ) ); // to-do: cache this!
     }
 
     [MoonSharpHidden] private Dictionary<string, int> repeatingTimers = new Dictionary<string, int>();
@@ -18,7 +18,7 @@ class LuaTimerLibrary
         if( repetitions < 0 || seconds < 0 ) { return; }
         if( repetitions == 0 ) { repetitions = -1; }
         repeatingTimers[identifier] = repetitions;
-        gameController.GetComponent<LuaScriptLoader>().StartCoroutine( StartRepeatingEnumerator( identifier, seconds, function ) );
+        gameController.GetComponent<LuaScriptLoader>().StartCoroutine( StartRepeatingEnumerator( identifier, seconds, function ) ); // to-do: cache this!
     }
 
     public void Remove( string identifier ) {
@@ -34,7 +34,7 @@ class LuaTimerLibrary
             Script luaScript = function.OwnerScript;
             luaScript.Call( function );
         } catch( InterpreterException ex ) {
-            gameController.GetComponent<LuaScriptLoader>().ThrowExceptionToConsole( ex );
+            ConsoleController.ThrowExceptionToConsole( ex );
         }
     }
 
@@ -50,7 +50,7 @@ class LuaTimerLibrary
                 Script luaScript = function.OwnerScript;
                 luaScript.Call( function );
             } catch( InterpreterException ex ) {
-                gameController.GetComponent<LuaScriptLoader>().ThrowExceptionToConsole( ex );
+                ConsoleController.ThrowExceptionToConsole( ex );
             }
         }
     }

@@ -10,6 +10,7 @@ public class LuaScriptLoader : MonoBehaviour
 	    UserData.RegisterAssembly();
         luaScript.Globals["File"] = new LuaFileLibrary();
         luaScript.Globals["Timer"] = new LuaTimerLibrary();
+        luaScript.Globals["Hook"] = new LuaHookLibrary();
     }
 
     private GameObject playerObject;
@@ -18,14 +19,6 @@ public class LuaScriptLoader : MonoBehaviour
         Script.DefaultOptions.ScriptLoader = new FileSystemScriptLoader();
         Script.DefaultOptions.DebugPrint = s => ConsoleController.PrintToConsole( s );
         LoadAutorunFiles();
-    }
-
-    public void ThrowExceptionToConsole( InterpreterException ex ) {
-        string niceMessage = ex.DecoratedMessage;
-        niceMessage = niceMessage.Replace( @"\", "/" );
-        int modulesIndex = niceMessage.IndexOf( "modules" );
-        niceMessage = niceMessage.Substring( modulesIndex, niceMessage.Length - modulesIndex );
-        ConsoleController.ThrowError( niceMessage );
     }
 
     private void LoadAutorunFiles() {
@@ -42,7 +35,7 @@ public class LuaScriptLoader : MonoBehaviour
                             AssignLuaGlobals( luaScript );
                             DynValue luaOutput = luaScript.DoFile( file );
                         } catch( InterpreterException ex ) {
-                            ThrowExceptionToConsole( ex );
+                            ConsoleController.ThrowExceptionToConsole( ex );
                         }
                     }
                 }
