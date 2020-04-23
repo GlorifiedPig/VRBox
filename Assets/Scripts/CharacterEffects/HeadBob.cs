@@ -10,7 +10,6 @@ public class HeadBob : MonoBehaviour
 
     private Vector3 savedPos;
     private Vector3 midpoint;
-    private float timer = 0.0f;
 
     void Awake() {
         midpoint = transform.localPosition;
@@ -18,9 +17,9 @@ public class HeadBob : MonoBehaviour
 
     void Update()
     {
-        float mul = Mathf.Sin(Time.timeSinceLevelLoad * bobbingSpeed);
-        savedPos = Vector3.Lerp(savedPos, transform.position, Time.deltaTime * recoverSpeed);
-        float offset = (transform.position - savedPos).magnitude;
-        transform.localPosition = midpoint + new Vector3(0, offset * bobbingAmount * mul);
+        float mul = Mathf.Sin( Time.timeSinceLevelLoad * bobbingSpeed );
+        savedPos = Vector3.Lerp( savedPos, transform.position, Time.deltaTime * recoverSpeed );
+        float offset = ( transform.position - savedPos ).magnitude;
+        transform.localPosition = midpoint + new Vector3( 0, offset * bobbingAmount * mul );
     }
 }
