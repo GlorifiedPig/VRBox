@@ -11,6 +11,6 @@ If you'd like to report a bug, issue or suggest a general enhancement, please go
 You are able to view further documentation at https://vrbox.dev/.
 
 ## Other
-You can find the Lua code located at `Assets/StreamingAssets/modules`.
+You can find the Lua code located at `Assets/StreamingAssets/Modules`.
 
 [Join the Discord server to follow and discuss development.](https://discord.gg/glorifiedstudios)
