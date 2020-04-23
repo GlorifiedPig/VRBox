@@ -15,7 +15,8 @@ table.Print({
     ["Bruv"] = 6
 })
 
-Hook.Attach( "TestHook", "UniqueHookID", function()
+Hook.Attach( "TestHook", "UniqueHookID", function( bruh, bruh2 )
+    print( bruh .. bruh2 )
     print( "UniqueHookID Called (TestHook)" )
 end )
 
@@ -23,7 +24,11 @@ Hook.Attach( "TestHook", "UniqueHookID2", function()
     print( "UniqueHookID2 Called (TestHook)" )
 end )
 
+Hook.Attach( "TestHook", "UniqueHookID3", function()
+    print( "UniqueHookID3 Called (TestHook)" )
+end )
+
 Timer.Begin( 5, function()
-    Hook.Remove( "TestHook", "UniqueHookID" )
-    Hook.Call( "TestHook" )
+    Hook.Remove( "TestHook", "UniqueHookID3" )
+    Hook.Call( "TestHook", "firstarg", "secondarg" )
 end )
