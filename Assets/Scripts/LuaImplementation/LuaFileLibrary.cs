@@ -17,6 +17,14 @@ class LuaFileLibrary
         return true;
     }
 
+    [MoonSharpHidden]
+    private void EnsureDataFolderExists() {
+        string dataPath = Path.Combine( Application.streamingAssetsPath, "data" );
+        if( !Directory.Exists( dataPath ) ) {
+            Directory.CreateDirectory( dataPath );
+        }
+    }
+
     public DynValue Exists( string path ) {
         string dataPath = Path.Combine( Application.streamingAssetsPath, "data" );
         path = Path.Combine( dataPath, path );
@@ -29,6 +37,7 @@ class LuaFileLibrary
     }
 
     public void CreateDirectory( string path ) {
+        EnsureDataFolderExists();
         string dataPath = Path.Combine( Application.streamingAssetsPath, "data" );
         path = Path.Combine( dataPath, path );
         if( !ValidPath( path ) ) { return; }
@@ -38,6 +47,7 @@ class LuaFileLibrary
     }
 
     public void Write( string path, string contents ) {
+        EnsureDataFolderExists();
         string dataPath = Path.Combine( Application.streamingAssetsPath, "data" );
         path = Path.Combine( dataPath, path );
         if( !ValidPath( path ) ) { return; }
