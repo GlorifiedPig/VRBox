@@ -139,7 +139,6 @@ GameObject:
   - component: {fileID: 5971796318843202187}
   - component: {fileID: 5971796318843202184}
   - component: {fileID: 5971796318843202197}
-  - component: {fileID: 5971796318843202185}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -215,20 +214,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 26d65195a27c38d4185d27ce9343c85e, type: 3}
   - {fileID: 8300000, guid: ec23462176ea85c449961988d1b9ac8e, type: 3}
   footstepSource: {fileID: 5971796318197854091}
---- !u!114 &5971796318843202185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5971796318843202190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98921fc21077b0d43bab6915b5fa4bb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputField: {fileID: 0}
-  consoleActive: 0
 --- !u!1 &5971796319910748040
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,5 +325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860eb67b097446a4b95a67e95f19a491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bobbingSpeed: 0.18
-  bobbingAmount: 0.2
+  bobbingSpeed: 15
+  bobbingAmount: 0.05
+  recoverSpeed: 10
