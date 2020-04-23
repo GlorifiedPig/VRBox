@@ -10,7 +10,6 @@ public class LuaScriptLoader : MonoBehaviour
 	    UserData.RegisterAssembly();
         luaScript.Globals["File"] = new LuaFileLibrary();
         luaScript.Globals["Timer"] = new LuaTimerLibrary();
-        luaScript.Globals["Hook"] = new LuaHookLibrary();
     }
 
     private GameObject playerObject;

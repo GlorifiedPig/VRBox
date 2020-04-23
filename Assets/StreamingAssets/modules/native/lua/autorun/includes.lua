@@ -1,6 +1,7 @@
 
 require( "types" )
 require( "tableutil" )
+require( "hooks" )
 
 -- below is a bunch of debugging stuff
 table.Print({
@@ -23,5 +24,6 @@ Hook.Attach( "TestHook", "UniqueHookID2", function()
 end )
 
 Timer.Begin( 5, function()
+    Hook.Remove( "TestHook", "UniqueHookID" )
     Hook.Call( "TestHook" )
 end )
