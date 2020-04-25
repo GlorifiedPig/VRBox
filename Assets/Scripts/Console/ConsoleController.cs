@@ -23,6 +23,7 @@ public class ConsoleController : MonoBehaviour
     public static void PrintToConsole( string printText ) { AddLineToConsole( "<color=white>" + printText + "</color>" ); }
 
     public static void ThrowExceptionToConsole( InterpreterException ex ) {
+        Debug.Log(ex);
         string niceMessage = ex.DecoratedMessage;
         niceMessage = niceMessage.Replace( @"\", "/" );
         int modulesIndex = niceMessage.IndexOf( "modules" );

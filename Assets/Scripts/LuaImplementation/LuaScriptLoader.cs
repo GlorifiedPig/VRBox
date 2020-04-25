@@ -6,12 +6,6 @@ using MoonSharp.Interpreter.Loaders;
 
 public class LuaScriptLoader : MonoBehaviour
 {
-    private void AssignLuaGlobals( Script luaScript ) {
-	    UserData.RegisterAssembly();
-        luaScript.Globals["File"] = new LuaFileLibrary();
-        luaScript.Globals["Timer"] = new LuaTimerLibrary();
-    }
-
     private GameObject playerObject;
     private void Start() {
         playerObject = GameObject.FindGameObjectWithTag( "Player" );
@@ -31,7 +25,7 @@ public class LuaScriptLoader : MonoBehaviour
                         try {
                             Script luaScript = new Script();
                             ((ScriptLoaderBase)luaScript.Options.ScriptLoader).ModulePaths = ScriptLoaderBase.UnpackStringPaths( moduleFolder + "/?;" + moduleFolder + "/?.lua" );
-                            AssignLuaGlobals( luaScript );
+                            LuaGlobals.AssignScriptGlobals( luaScript );
                             DynValue luaOutput = luaScript.DoFile( file );
                         } catch( InterpreterException ex ) {
                             ConsoleController.ThrowExceptionToConsole( ex );
