@@ -24,10 +24,11 @@ class LuaGlobals
         luaGlobals[identifier] = value;
     }
 
-    public static DynValue Get( string identifier, params object[] args ) {
-        if( luaGlobals[identifier].Type == DataType.Function ) {
-            return luaGlobals[identifier].Function.Call( args );
-        }
+    public static DynValue Get( string identifier ) {
         return luaGlobals[identifier];
+    }
+    
+    public static DynValue CallFunc( string identifier, params object[] args ) {
+        return luaGlobals[identifier].Function.Call( args );
     }
 }
