@@ -27,6 +27,10 @@ Hook.Attach( "TestHook", "UniqueHookID2", function()
     print( "UniqueHookID2 Called (TestHook)" )
 end )
 
+Hook.Attach( "AutorunFilesLoaded", "AutorunFilesLoadedUniqueID", function()
+    print( "Autorun Files Loaded" )
+end )
+
 Timer.Begin( 5, function()
     Hook.Remove( "TestHook", "UniqueHookID" )
     Hook.Call( "TestHook" )
