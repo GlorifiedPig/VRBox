@@ -16,16 +16,18 @@ public class LuaScriptLoader : MonoBehaviour
 
     private void LoadAutorunFiles() {
         string modulesPath = Path.Combine( Application.streamingAssetsPath, "modules" );
+        Script luaScript = new Script();
+        LuaGlobals.AssignScriptGlobals( luaScript );
         foreach( var folder in Directory.GetDirectories( modulesPath, "*.*", SearchOption.AllDirectories ) ) {
             string moduleFolder = Path.Combine( modulesPath, folder + "/lua" );
             string autorunFolder = Path.Combine( moduleFolder, "autorun" );
             if( Directory.Exists( autorunFolder ) ) {
                 foreach ( var file in Directory.GetFiles( autorunFolder, "*.*", SearchOption.AllDirectories ) ) {
                     if( Path.GetExtension( file ) == ".lua" ) {
+                        Debug.Log( Path.GetDirectoryName( file ) );
+                        Debug.Log( moduleFolder );
                         try {
-                            Script luaScript = new Script();
                             ((ScriptLoaderBase)luaScript.Options.ScriptLoader).ModulePaths = ScriptLoaderBase.UnpackStringPaths( moduleFolder + "/?;" + moduleFolder + "/?.lua" );
-                            LuaGlobals.AssignScriptGlobals( luaScript );
                             DynValue luaOutput = luaScript.DoFile( file );
                         } catch( InterpreterException ex ) {
                             ConsoleController.ThrowExceptionToConsole( ex );

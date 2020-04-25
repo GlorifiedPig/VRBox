@@ -3,8 +3,9 @@ require( "types" )
 require( "tableutil" )
 require( "hooks" )
 
-Globals.Push( "TestGlobal", function( bruh ) print( bruh ) return "E" end )
-Globals.Push( "TestTable", {"bruh"} )
+function bruh()
+    print('yoyoyooyoyoy')
+end
 
 -- below is a bunch of debugging stuff
 table.Print({
